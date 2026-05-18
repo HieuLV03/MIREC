@@ -1,0 +1,89 @@
+.createPostPage {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f6f8;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.createPostCard {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  box-sizing: border-box;
+}
+
+.createPostCard h1 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* INPUT + TEXTAREA + SELECT */
+.createPostCard input,
+.createPostCard textarea,
+.createPostCard select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.createPostCard input:focus,
+.createPostCard textarea:focus,
+.createPostCard select:focus {
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+}
+
+/* TEXTAREA */
+.createPostCard textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+/* BUTTON */
+.createPostCard button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.createPostCard button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.createPostCard button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .createPostCard {
+    padding: 20px;
+  }
+
+  .createPostCard h1 {
+    font-size: 22px;
+  }
+}

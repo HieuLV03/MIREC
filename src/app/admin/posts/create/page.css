@@ -1,0 +1,127 @@
+.createPostPage {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fb, #eef2f7);
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+.createPostCard {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* TITLE */
+.createPostCard h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #111827;
+  letter-spacing: -0.5px;
+}
+
+/* INPUT */
+.createPostCard input,
+.createPostCard textarea,
+.createPostCard select {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 15px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #fafafa;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+  font-family: inherit;
+  color: #111;
+}
+
+/* FOCUS */
+.createPostCard input:focus,
+.createPostCard textarea:focus,
+.createPostCard select:focus {
+  border-color: #111;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.08);
+}
+
+/* TEXTAREA */
+.createPostCard textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* FILE INPUT */
+.createPostCard input[type="file"] {
+  background: white;
+  padding: 10px;
+  border: 1px dashed #ccc;
+}
+
+/* CHECKBOX */
+.createPostCard label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin: 10px 0 20px;
+  color: #374151;
+}
+
+/* BUTTON */
+.createPostCard button {
+  width: 100%;
+  height: 52px;
+  background: linear-gradient(135deg, #111, #333);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+/* HOVER */
+.createPostCard button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* DISABLED */
+.createPostCard button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* GRID (nếu muốn chia 2 cột sau này) */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .createPostCard {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .createPostCard h1 {
+    font-size: 24px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}

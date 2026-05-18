@@ -1,0 +1,167 @@
+:root {
+  --primary: #ff4d8d;
+  --secondary: #3aa0ff;
+  --gradient: linear-gradient(135deg, #3aa0ff, #ff4d8d);
+}
+
+/* ================= PAGE ================= */
+
+.postsPage {
+  font-family: "Inter", sans-serif;
+  background: #f8fbff;
+}
+
+/* ================= HERO ================= */
+
+.postsHero {
+  padding: 90px 20px;
+
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(58,160,255,0.95),
+    rgba(255,77,141,0.95)
+  );
+
+  color: white;
+}
+
+.postsHeroContent {
+  max-width: 800px;
+  margin: auto;
+}
+
+.postsHero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 46px;
+  font-weight: 700;
+  margin: 16px 0;
+  line-height: 1.2;
+}
+
+.postsHero p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ================= CONTAINER ================= */
+
+.postsContainer {
+  max-width: 1150px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+/* ================= GRID ================= */
+
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+/* ================= CARD ================= */
+
+.postCard {
+  background: white;
+  border-radius: 20px;
+
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+
+  box-shadow: 0 12px 40px rgba(58,160,255,0.08);
+  border: 1px solid rgba(58,160,255,0.12);
+
+  transition: 0.35s ease;
+}
+
+.postCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(255,77,141,0.15);
+}
+
+/* FEATURED FIRST POST */
+.postCard.featured {
+  grid-column: span 2;
+}
+
+/* IMAGE */
+.postImage img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.postContent {
+  padding: 18px;
+}
+
+.postMeta {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.postContent h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.postContent p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* READ MORE */
+.readMore {
+  margin-top: 12px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= STATES ================= */
+
+.stateBox {
+  text-align: center;
+  padding: 50px;
+  color: #6b7280;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .postCard.featured {
+    grid-column: auto;
+  }
+
+  .postsHero h1 {
+    font-size: 28px;
+  }
+}

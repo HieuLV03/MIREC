@@ -1,0 +1,203 @@
+/* ================= BASE ================= */
+
+.homePage {
+  font-family: "Poppins", sans-serif;
+  background: #f8fbff;
+  color: #1a1a1a;
+}
+
+:root {
+  --primary: #ff4d8d;
+  --secondary: #3aa0ff;
+  --gradient: linear-gradient(135deg, #3aa0ff, #ff4d8d);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient);
+  opacity: 0.9;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.heroBadge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.2);
+  font-size: 12px;
+}
+
+.heroContent h1 {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 20px 0;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ================= BUTTONS ================= */
+
+.btnPrimary {
+  background: white;
+  color: var(--primary);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.btnOutline {
+  border: 1px solid white;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+
+/* ================= SECTION ================= */
+
+.section {
+  padding: 80px 7%;
+}
+
+.sectionHeader h2 {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.sectionTag {
+  font-size: 12px;
+  letter-spacing: 2px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= SERVICES GRID (2 CỘT) ================= */
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+/* CARD */
+.serviceCard {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.serviceCard:hover {
+  transform: translateY(-6px);
+}
+
+/* IMAGE VUÔNG */
+.serviceImg {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.serviceImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BODY */
+.serviceBody {
+  padding: 14px;
+}
+
+.serviceBody h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.serviceBody p {
+  font-size: 13px;
+  color: #666;
+  margin: 6px 0;
+}
+
+.serviceBody span {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* ================= BLOG ================= */
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.blogCard {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.blogImg img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.blogBody {
+  padding: 14px;
+}
+
+/* ================= ABOUT ================= */
+
+.aboutSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 80px 7%;
+  gap: 40px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .blogGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroContent h1 {
+    font-size: 36px;
+  }
+
+  .aboutSection {
+    grid-template-columns: 1fr;
+  }
+}

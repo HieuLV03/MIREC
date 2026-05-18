@@ -1,0 +1,164 @@
+/* ========================= */
+/* ADMIN POSTS PAGE - MODERN */
+/* ========================= */
+
+.adminPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f6f7fb, #eef1f7);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* CARD */
+.adminCard {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* HEADER */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.headerRow h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ADD BUTTON */
+.addBtn {
+  background: linear-gradient(135deg, #111, #333);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.addBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* TABLE WRAPPER (responsive scroll) */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+}
+
+/* HEADER TABLE */
+.table thead {
+  background: #f3f4f6;
+}
+
+.table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #374151;
+  font-weight: 600;
+}
+
+/* ROW */
+.table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: 14px;
+  color: #111827;
+}
+
+/* HOVER ROW */
+.table tbody tr:hover {
+  background: #fafafa;
+}
+
+/* ACTION COLUMN */
+.action {
+  display: flex;
+  gap: 10px;
+}
+
+/* EDIT BUTTON */
+.editBtn {
+  background: #2563eb;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.editBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* DELETE BUTTON */
+.deleteBtn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.deleteBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* EMPTY / LOADING TEXT */
+.adminCard p {
+  text-align: center;
+  color: #6b7280;
+  padding: 30px 0;
+  font-size: 14px;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .adminCard {
+    padding: 20px;
+  }
+
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .action {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,181 @@
+/* ========================= */
+/* AUTH PAGE WRAPPER */
+/* ========================= */
+
+.authPage {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* ========================= */
+/* AUTH CARD */
+/* ========================= */
+
+.authCard {
+  width: 100%;
+  max-width: 420px;
+
+  background: #ffffff;
+  border-radius: 18px;
+
+  padding: 28px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  animation: fadeIn 0.3s ease;
+}
+
+/* ========================= */
+/* TITLE */
+/* ========================= */
+
+.authCard h1 {
+  font-size: 24px;
+  font-weight: 700;
+
+  text-align: center;
+  margin-bottom: 6px;
+
+  color: #111827;
+}
+
+/* ========================= */
+/* INPUT */
+/* ========================= */
+
+.authCard input {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 12px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition: 0.2s;
+  background: #fff;
+
+  box-sizing: border-box; /* 🔥 FIX TRÀN MOBILE */
+}
+
+.authCard input:focus {
+  border-color: #3aa0ff;
+  box-shadow: 0 0 0 3px rgba(58, 160, 255, 0.15);
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.authCard button {
+  width: 100%;
+  height: 44px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #3aa0ff, #ff4d8d);
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+  margin-top: 4px;
+}
+
+.authCard button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(58, 160, 255, 0.25);
+}
+
+.authCard button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========================= */
+/* SWITCH TEXT */
+/* ========================= */
+
+.authCard p {
+  text-align: center;
+
+  font-size: 13px;
+  color: #6b7280;
+
+  margin-top: 6px;
+
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+
+.authCard p:hover {
+  color: #111827;
+}
+
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= */
+/* MOBILE FIX (QUAN TRỌNG) */
+/* ========================= */
+
+@media (max-width: 480px) {
+  .authPage {
+    padding: 12px;
+  }
+
+  .authCard {
+    padding: 20px;
+    border-radius: 14px;
+
+    gap: 10px; /* 🔥 gọn hơn */
+  }
+
+  .authCard h1 {
+    font-size: 20px;
+  }
+
+  .authCard input {
+    height: 42px;
+    font-size: 13px;
+  }
+
+  .authCard button {
+    height: 42px;
+    font-size: 13px;
+  }
+}
