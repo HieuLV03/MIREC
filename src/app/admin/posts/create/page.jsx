@@ -19,7 +19,7 @@ export default function CreatePostPage() {
     meta_keywords: "",
     og_image: "",
     category: "",
-    status: "",
+    status: "published",
     featured: false,
   });
 

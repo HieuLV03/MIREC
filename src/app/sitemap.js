@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabase";
-
+export const dynamic = "force-dynamic";
 export default async function sitemap() {
   // POSTS
   const { data: posts, error: postError } =
@@ -17,11 +17,8 @@ export default async function sitemap() {
     .select("slug, updated_at")
     .eq("status", "published");
 
-  // nếu lỗi
+  // ERROR
   if (postError || serviceError) {
-    console.log(postError);
-    console.log(serviceError);
-
     return [
       {
         url: "https://testhisu.vercel.app",
@@ -30,37 +27,46 @@ export default async function sitemap() {
     ];
   }
 
-  // POST URLS
+  // POSTS URLS
   const postUrls = posts.map((post) => ({
     url: `https://testhisu.vercel.app/posts/${post.slug}`,
     lastModified:
       post.updated_at || new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
   }));
 
-  // SERVICE URLS
+  // SERVICES URLS
   const serviceUrls = services.map(
     (service) => ({
       url: `https://testhisu.vercel.app/services/${service.slug}`,
       lastModified:
         service.updated_at || new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     })
   );
 
-  // RETURN
   return [
     {
       url: "https://testhisu.vercel.app",
       lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 1,
     },
 
     {
       url: "https://testhisu.vercel.app/posts",
       lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
     },
 
     {
       url: "https://testhisu.vercel.app/services",
       lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
     },
 
     ...postUrls,

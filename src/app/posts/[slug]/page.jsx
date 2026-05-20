@@ -3,8 +3,7 @@ import { supabase } from "@/lib/supabase";
 export async function generateMetadata({
   params,
 }) {
-  const { slug } = params;
-
+const { slug } = await params;
   const { data } = await supabase
     .from("posts")
     .select("*")
