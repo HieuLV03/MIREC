@@ -24,14 +24,12 @@ export default function HomePage() {
 
   async function fetchHomeData() {
     try {
-      // SLIDERS
       const { data: sliderData } = await supabase
         .from("sliders")
         .select("*")
         .eq("status", "published")
         .order("created_at", { ascending: false });
 
-      // SERVICES
       const { data: serviceData } = await supabase
         .from("services")
         .select("*")
@@ -39,7 +37,6 @@ export default function HomePage() {
         .order("created_at", { ascending: false })
         .limit(6);
 
-      // POSTS
       const { data: postData } = await supabase
         .from("posts")
         .select("*")
@@ -58,63 +55,79 @@ export default function HomePage() {
   return (
     <main className="homePage">
 
-      {/* HERO SLIDER */}
-<section className="heroSlider">
-  {sliders.length > 0 && (
-    <Swiper
-      key={sliders.length}
-      modules={[Autoplay, Pagination]}
-      slidesPerView={1}
-      loop={sliders.length > 1}
-      speed={1000}
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: false,
-      }}
-      pagination={{ clickable: true }}
-      className="heroSwiper"
-    >
-      {sliders.map((item) => (
-        <SwiperSlide key={item.id}>
-          <div
-            className="heroSlide"
-            style={{ "--bg-image": `url(${item.image})` }}
+      {/* HERO */}
+      <section className="heroSlider">
+
+        {sliders.length > 0 && (
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            slidesPerView={1}
+            loop={sliders.length > 1}
+            speed={1000}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            pagination={{ clickable: true }}
+            className="heroSwiper"
           >
-            <div className="heroOverlay" />
+            {sliders.map((item) => (
+              <SwiperSlide key={item.id}>
 
-            <div className="heroContent">
-              <span className="heroBadge">THẨM MỸ VIỆN HISU</span>
+                <div className="heroSlide">
 
-              <h1>{item.title}</h1>
+                  <picture>
+                    <source
+                      media="(max-width: 768px)"
+                      srcSet={item.image_mobile}
+                    />
 
-              <p>
-                Hệ thống thẩm mỹ & chăm sóc sắc đẹp chuyên nghiệp.
-              </p>
+                    <img
+                      src={item.image_desktop}
+                      alt={item.title}
+                    />
+                  </picture>
 
-              <div className="heroButtons">
-                <Link href="/booking" className="btnPrimary">
-                  Đặt lịch ngay
-                </Link>
+                  <div className="heroOverlay" />
 
-                <Link href="/services" className="btnOutline">
-                  Xem dịch vụ
-                </Link>
+                  <div className="heroContent">
+                    <span className="heroBadge">
+                      THẨM MỸ VIỆN HISU
+                    </span>
 
-                <Link href="/posts" className="btnOutline">
-                  Xem bài viết
-                </Link>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  )}
-</section>
+                    <h1>{item.title}</h1>
+
+                    <p>
+                      Hệ thống thẩm mỹ & chăm sóc sắc đẹp chuyên nghiệp.
+                    </p>
+
+                    <div className="heroButtons">
+                      <Link href="/booking" className="btnPrimary">
+                        Đặt lịch ngay
+                      </Link>
+
+                      <Link href="/services" className="btnOutline">
+                        Xem dịch vụ
+                      </Link>
+
+                      <Link href="/posts" className="btnOutline">
+                        Xem bài viết
+                      </Link>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
+
+      </section>
+
       {/* SERVICES */}
       <section className="section">
-
         <div className="sectionHeader">
           <span className="sectionTag">DỊCH VỤ</span>
           <h2>Dịch vụ nổi bật</h2>
@@ -124,57 +137,43 @@ export default function HomePage() {
           <p className="loading">Đang tải...</p>
         ) : (
           <div className="serviceGrid">
-
             {services.map((item) => (
               <Link
                 key={item.id}
                 href={`/services/${item.slug}`}
                 className="serviceCard"
               >
-
                 <div className="serviceImg">
-                  {item.image && (
-                    <img src={item.image} alt={item.title} />
-                  )}
+                  <img src={item.image} alt={item.title} />
                 </div>
 
                 <div className="serviceBody">
-
                   <h3>{item.title}</h3>
-
                   <p>{item.short_description}</p>
-
                   <span>
                     {Number(item.price || 0).toLocaleString("vi-VN")}đ
                   </span>
-
                 </div>
-
               </Link>
             ))}
-
           </div>
         )}
-
       </section>
 
       {/* BLOG */}
       <section className="section">
-
         <div className="sectionHeader">
           <span className="sectionTag">BLOG</span>
           <h2>Bài viết mới</h2>
         </div>
 
         <div className="blogGrid">
-
           {posts.map((post) => (
             <Link
               key={post.id}
               href={`/posts/${post.slug}`}
               className="blogCard"
             >
-
               {post.image && (
                 <div className="blogImg">
                   <img src={post.image} alt={post.title} />
@@ -185,12 +184,9 @@ export default function HomePage() {
                 <h3>{post.title}</h3>
                 <p>{post.description}</p>
               </div>
-
             </Link>
           ))}
-
         </div>
-
       </section>
 
     </main>

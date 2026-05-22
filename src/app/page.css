@@ -1,24 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
 
-/* ================= ROOT ================= */
-
 :root {
-  --bg: #faf7f2;
-  --text: #181818;
-
   --gold: #c8a96b;
-  --gold-light: #e8d2a8;
-
-  --white: #ffffff;
-
-  --shadow:
-    0 10px 40px rgba(0,0,0,0.08);
-
-  --radius: 24px;
+  --shadow: 0 10px 40px rgba(0,0,0,0.08);
 }
 
-/* ================= BASE ================= */
-
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -26,26 +13,13 @@
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
   font-family: "Inter", sans-serif;
-}
-
-.homePage {
-  overflow: hidden;
 }
 
 /* ================= HERO ================= */
 
-.heroSlider {
-  position: relative;
-}
-
-.heroSwiper {
-  width: 100%;
-  height: 100vh;
-}
-
+.heroSwiper,
+.heroSlider,
 .heroSlide {
   width: 100%;
   height: 100vh;
@@ -53,465 +27,173 @@ body {
 
 .heroSlide {
   position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   overflow: hidden;
 }
 
-/* BACKGROUND IMAGE */
-
-.heroSlide::before {
-  content: "";
-
+/* IMAGE FULL COVER */
+.heroSlide img {
   position: absolute;
   inset: 0;
-
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-position: center;
-
-  transform: scale(1);
-
-  animation: heroZoom 8s linear forwards;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* OVERLAY */
-
 .heroOverlay {
   position: absolute;
   inset: 0;
-
+  background: rgba(0,0,0,0.45);
   z-index: 1;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.25),
-      rgba(0,0,0,0.65)
-    );
 }
 
-/* ================= HERO CONTENT ================= */
-
+/* ================= CENTER CONTENT ================= */
 .heroContent {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 2;
 
-  width: 100%;
-  max-width: 1000px;
-
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   text-align: center;
-  color: white;
+
+  padding: 0 20px;
+
+  transform: translateY(-2%); /* FIX cảm giác bị tụt */
 }
 
-.heroBadge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px 20px;
-
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 999px;
-
-  backdrop-filter: blur(10px);
-
-  font-size: 13px;
-  letter-spacing: 3px;
-  font-weight: 600;
-
-  margin-bottom: 24px;
-}
-
+/* TITLE */
 .heroContent h1 {
   font-family: "Playfair Display", serif;
+  font-size: 72px;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
 
-  font-size: 82px;
-  line-height: 1.08;
-  font-weight: 700;
-
+/* TEXT */
+.heroContent p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.9);
+  max-width: 700px;
   margin-bottom: 24px;
 }
 
-.heroContent p {
-  font-size: 18px;
-  line-height: 1.8;
-
-  max-width: 720px;
-  margin: auto;
-
-  opacity: 0.92;
+/* BADGE */
+.heroBadge {
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: 3px;
 }
 
-/* ================= BUTTONS ================= */
-
+/* BUTTONS */
 .heroButtons {
   display: flex;
-  justify-content: center;
-  gap: 16px;
-
-  margin-top: 40px;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
 }
 
+/* BUTTON */
 .btnPrimary,
 .btnOutline {
-  min-width: 180px;
+  min-width: 170px;
+  height: 52px;
 
-  height: 56px;
-
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 
   border-radius: 999px;
-
-  font-size: 15px;
   font-weight: 600;
-
-  transition: 0.35s;
-
   text-decoration: none;
 }
 
 .btnPrimary {
   background: var(--gold);
-  color: white;
-}
-
-.btnPrimary:hover {
-  transform: translateY(-4px);
-  background: #b8914c;
+  color: #fff;
 }
 
 .btnOutline {
-  border: 1px solid rgba(255,255,255,0.5);
-  color: white;
-
-  backdrop-filter: blur(8px);
-}
-
-.btnOutline:hover {
-  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.6);
+  color: #fff;
 }
 
 /* ================= SECTION ================= */
 
 .section {
-  padding: 110px 7%;
+  padding: 100px 7%;
 }
 
 .sectionHeader {
-  margin-bottom: 50px;
   text-align: center;
-}
-
-.sectionTag {
-  color: var(--gold);
-
-  letter-spacing: 4px;
-  font-size: 13px;
-  font-weight: 700;
-
-  display: block;
-  margin-bottom: 12px;
+  margin-bottom: 40px;
 }
 
 .sectionHeader h2 {
   font-family: "Playfair Display", serif;
-
-  font-size: 56px;
-  font-weight: 700;
+  font-size: 50px;
 }
 
-/* ================= SERVICES ================= */
-
-.serviceGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.serviceCard {
-  background: white;
-
-  border-radius: var(--radius);
-  overflow: hidden;
-
-  text-decoration: none;
-  color: inherit;
-
-  box-shadow: var(--shadow);
-
-  transition: 0.4s;
-}
-
-.serviceCard:hover {
-  transform: translateY(-10px);
-}
-
-.serviceImg {
-  height: 320px;
-  overflow: hidden;
-}
-
-.serviceImg img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  transition: 0.5s;
-}
-
-.serviceCard:hover .serviceImg img {
-  transform: scale(1.06);
-}
-
-.serviceBody {
-  padding: 24px;
-}
-
-.serviceBody h3 {
-  font-family: "Playfair Display", serif;
-
-  font-size: 24px;
-  margin-bottom: 12px;
-}
-
-.serviceBody p {
-  color: #666;
-  line-height: 1.8;
-  margin-bottom: 18px;
-}
-
-.serviceBody span {
+.sectionTag {
   color: var(--gold);
-
-  font-size: 20px;
-  font-weight: 700;
+  letter-spacing: 4px;
 }
 
-/* ================= ABOUT ================= */
-
-.aboutSection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  align-items: center;
-
-  gap: 80px;
-
-  padding: 120px 7%;
-}
-
-.aboutSection h2 {
-  font-family: "Playfair Display", serif;
-
-  font-size: 56px;
-  margin-bottom: 20px;
-}
-
-.aboutSection p {
-  color: #666;
-  line-height: 2;
-  font-size: 17px;
-}
-
-.aboutSection img {
-  width: 100%;
-  height: 650px;
-
-  object-fit: cover;
-
-  border-radius: 32px;
-
-  box-shadow: var(--shadow);
-}
-
-/* ================= BLOG ================= */
-
+/* GRID */
+.serviceGrid,
 .blogGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 
+/* CARD */
+.serviceCard,
 .blogCard {
-  background: white;
-
-  border-radius: var(--radius);
+  background: #fff;
+  border-radius: 20px;
   overflow: hidden;
-
+  box-shadow: var(--shadow);
   text-decoration: none;
   color: inherit;
-
-  box-shadow: var(--shadow);
-
-  transition: 0.4s;
 }
 
-.blogCard:hover {
-  transform: translateY(-8px);
-}
-
+/* IMAGE */
+.serviceImg,
 .blogImg {
-  height: 240px;
+  height: 260px;
   overflow: hidden;
 }
 
+.serviceImg img,
 .blogImg img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
-  transition: 0.5s;
 }
 
-.blogCard:hover .blogImg img {
-  transform: scale(1.06);
-}
-
+/* BODY */
+.serviceBody,
 .blogBody {
-  padding: 24px;
+  padding: 20px;
 }
 
-.blogBody h3 {
-  font-family: "Playfair Display", serif;
-
-  font-size: 24px;
-  line-height: 1.4;
-
-  margin-bottom: 14px;
-}
-
-.blogBody p {
-  color: #666;
-  line-height: 1.8;
-}
-
-/* ================= SWIPER ================= */
-
-.swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-
-  background: rgba(255,255,255,0.5);
-  opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-  background: var(--gold);
-}
-
-/* ================= HERO ANIMATION ================= */
-
-.heroSwiper .swiper-slide-active .heroContent {
-  animation: heroFade 1.2s ease;
-}
-
-@keyframes heroFade {
-
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes heroZoom {
-
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.08);
-  }
-}
-
-/* ================= LOADING ================= */
-
-.loading {
-  text-align: center;
-  padding: 60px 0;
-
-  font-size: 18px;
-}
-
-/* ================= MOBILE ================= */
-
+/* MOBILE */
 @media (max-width: 768px) {
-
-  .heroSwiper,
-  .heroSlide {
-    height: 79vh;
-  }
-
   .heroContent h1 {
-    font-size: 42px;
-  }
-
-  .heroContent p {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .heroButtons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btnPrimary,
-  .btnOutline {
-    width: 100%;
-    max-width: 280px;
-  }
-
-  .section {
-    padding: 30px 18px;
-  }
-
-  .sectionHeader h2 {
-    font-size: 36px;
-  }
-
-  .serviceGrid,
-  .blogGrid,
-  .aboutSection {
-    grid-template-columns: 1fr;
-  }
-
-  .serviceImg {
-    height: 260px;
-  }
-
-  .aboutSection {
-    gap: 40px;
-  }
-
-  .aboutSection h2 {
     font-size: 38px;
   }
 
-  .aboutSection img {
-    height: 400px;
+  .serviceGrid,
+  .blogGrid {
+    grid-template-columns: 1fr;
   }
 
-  .blogImg {
-    height: 220px;
-  }
-
-  .blogBody h3 {
-    font-size: 22px;
+  .sectionHeader h2 {
+    font-size: 32px;
   }
 }

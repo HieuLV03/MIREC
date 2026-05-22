@@ -24,6 +24,7 @@ body {
   width: 100%;
   height: 90vh;
   position: relative;
+  overflow: hidden;
 }
 
 .heroSwiper {
@@ -50,7 +51,7 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.3),
+    rgba(0,0,0,0.25),
     rgba(0,0,0,0.75)
   );
   z-index: 1;
@@ -84,31 +85,38 @@ body {
   display: flex;
   gap: 12px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .btnPrimary {
   background: white;
-  color: var(--primary);
-  padding: 12px 20px;
+  color: #ff4d8d;
+  padding: 12px 22px;
   border-radius: 999px;
   font-weight: 700;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-4px);
 }
 
 .btnOutline {
   border: 1px solid white;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 22px;
   border-radius: 999px;
   text-decoration: none;
+  transition: 0.3s;
 }
 
-/* SWIPER FIX */
-.swiper {
-  width: 100%;
-  height: 100%;
+.btnOutline:hover {
+  background: rgba(255,255,255,0.15);
 }
 
+/* SWIPER */
+.swiper,
 .swiper-slide {
   width: 100%;
   height: 100%;
@@ -130,13 +138,14 @@ body {
 .section {
   max-width: 1200px;
   margin: auto;
-  padding: 30px 20px;
+  padding: 60px 20px;
 }
 
 .sectionHeader h2 {
   text-align: center;
   font-size: 42px;
   font-weight: 800;
+  margin-bottom: 30px;
 }
 
 /* GRID */
@@ -187,7 +196,11 @@ body {
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .heroContent h1 {
-    font-size: 32px;
+    font-size: 34px;
+  }
+
+  .heroSlider {
+    height: 70vh;
   }
 
   .serviceGrid,
@@ -195,7 +208,122 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .heroSlider {
-    height: 70vh;
+  .heroContent p {
+    font-size: 15px;
   }
+}
+.heroSlider {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.heroSlide {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ⭐ QUAN TRỌNG: ảnh full cover */
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* overlay */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.75)
+  );
+  z-index: 1;
+}
+
+/* content */
+.heroContent {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.heroContent h1 {
+  font-size: 60px;
+  font-weight: 800;
+  font-family: "Playfair Display", serif;
+}
+
+.heroContent p {
+  margin-top: 15px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+  .heroActions {
+    flex-direction: column;
+  }
+/* buttons */
+.heroActions {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: white;
+  color: #ff4d8d;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btnOutline {
+  border: 1px solid white;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+/* swiper fix */
+.swiper,
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+/* pagination */
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ff4d8d;
 }

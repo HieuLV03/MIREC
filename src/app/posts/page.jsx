@@ -74,39 +74,47 @@ export default function HomePage() {
 
           {sliders.map((item) => (
             <SwiperSlide key={item.id}>
-      <section className="heroSlider">
+{/* HERO SLIDER */}
+<section className="heroSlider">
   {sliders.length > 0 && (
     <Swiper
-      key={sliders.length}
       modules={[Autoplay, Pagination]}
       slidesPerView={1}
       loop={sliders.length > 1}
-      speed={900}
+      speed={1000}
       autoplay={{
-        delay: 4000,
+        delay: 5000,
         disableOnInteraction: false,
-        pauseOnMouseEnter: false,
       }}
       pagination={{ clickable: true }}
       className="heroSwiper"
     >
       {sliders.map((item) => (
         <SwiperSlide key={item.id}>
-          <div
-            className="heroSlide"
-            style={{
-              backgroundImage: item.image ? `url(${item.image})` : "none",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
+          <div className="heroSlide">
+
+            {/* IMAGE RESPONSIVE */}
+            <picture className="heroPicture">
+              <source
+                media="(max-width: 768px)"
+                srcSet={item.image_mobile}
+              />
+              <img
+                src={item.image_desktop || item.image}
+                alt={item.title}
+                className="heroImg"
+              />
+            </picture>
+
+            {/* OVERLAY */}
             <div className="heroOverlay" />
 
+            {/* CONTENT */}
             <div className="heroContent">
               <h1>{item.title}</h1>
 
               <p>
-                Nâng tầm nhan sắc với công nghệ hiện đại
+                Hệ thống thẩm mỹ & chăm sóc sắc đẹp chuyên nghiệp.
               </p>
 
               <div className="heroActions">
@@ -115,7 +123,11 @@ export default function HomePage() {
                 </Link>
 
                 <Link href="/services" className="btnOutline">
-                  Dịch vụ
+                  Xem dịch vụ
+                </Link>
+
+                <Link href="/posts" className="btnOutline">
+                  Xem bài viết
                 </Link>
               </div>
             </div>

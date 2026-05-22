@@ -60,9 +60,6 @@ a {
 
 /* ================= HERO SLIDER ================= */
 
-.heroSlider {
-  position: relative;
-}
 
 .heroSwiper,
 .heroSlide {
@@ -70,32 +67,32 @@ a {
   height: 92vh;
 }
 
+
+
 .heroSlide {
   position: relative;
+  width: 100%;
+  height: 92vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   overflow: hidden;
-
-  background-size: cover;
-  background-position: center;
 }
 
-/* ZOOM BACKGROUND */
-
+/* BACKGROUND FIX CHUẨN */
 .heroSlide::before {
   content: "";
 
   position: absolute;
   inset: 0;
 
-  background-image: inherit;
+  background-image: var(--bg);
   background-size: cover;
   background-position: center;
 
-  transform: scale(1);
+  transform: scale(1.05);
 
   animation: heroZoom 8s linear forwards;
 }
@@ -343,7 +340,30 @@ a {
   transform:
     translateY(-10px);
 }
+.heroSlide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.heroSlide picture,
+.heroSlide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .heroSwiper,
+  .heroSlide {
+    height: 82vh;
+  }
 
+  .heroSlide img {
+    object-fit: cover;
+    object-position: center;
+  }
+}
 /* IMAGE */
 
 .serviceImg {
