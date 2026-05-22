@@ -34,15 +34,15 @@ const handleSubmit = async (e) => {
 
     const data = await res.json();
 
+    console.log("API response:", data);
+
     if (data.success) {
       setSuccess(true);
       setForm({ name: "", phone: "", email: "", message: "" });
 
-      setTimeout(() => {
-        setSuccess(false);
-      }, 5000);
+      setTimeout(() => setSuccess(false), 5000);
     } else {
-      alert("Gửi thất bại!");
+      alert(data.error || "Gửi thất bại!");
     }
   } catch (err) {
     alert("Có lỗi xảy ra!");
@@ -50,6 +50,7 @@ const handleSubmit = async (e) => {
 
   setLoading(false);
 };
+
   return (
     <div className="booking-container">
       <div className="booking-box">
