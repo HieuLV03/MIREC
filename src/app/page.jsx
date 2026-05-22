@@ -175,9 +175,9 @@ export default function HomePage() {
               className="blogCard"
             >
 
-              {post.thumbnail && (
+              {post.image && (
                 <div className="blogImg">
-                  <img src={post.thumbnail} alt={post.title} />
+                  <img src={post.image} alt={post.title} />
                 </div>
               )}
 
