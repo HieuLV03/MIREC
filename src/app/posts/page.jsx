@@ -74,31 +74,58 @@ export default function HomePage() {
 
           {sliders.map((item) => (
             <SwiperSlide key={item.id}>
-              <div
-                className="heroSlide"
-                style={{ backgroundImage: `url(${item.image})` }}
-              >
-                <div className="heroOverlay" />
+      <section className="heroSlider">
+  {sliders.length > 0 && (
+    <Swiper
+      key={sliders.length}
+      modules={[Autoplay, Pagination]}
+      slidesPerView={1}
+      loop={sliders.length > 1}
+      speed={900}
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false,
+      }}
+      pagination={{ clickable: true }}
+      className="heroSwiper"
+    >
+      {sliders.map((item) => (
+        <SwiperSlide key={item.id}>
+          <div
+            className="heroSlide"
+            style={{
+              backgroundImage: item.image ? `url(${item.image})` : "none",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="heroOverlay" />
 
-                <div className="heroContent">
-                  <h1>{item.title}</h1>
+            <div className="heroContent">
+              <h1>{item.title}</h1>
 
-                  <p>
-                    Nâng tầm nhan sắc với công nghệ hiện đại
-                  </p>
+              <p>
+                Nâng tầm nhan sắc với công nghệ hiện đại
+              </p>
 
-                  <div className="heroActions">
-                    <Link href="/booking" className="btnPrimary">
-                      Đặt lịch
-                    </Link>
+              <div className="heroActions">
+                <Link href="/booking" className="btnPrimary">
+                  Đặt lịch
+                </Link>
 
-                    <Link href="/services" className="btnOutline">
-                      Dịch vụ
-                    </Link>
-                  </div>
-                </div>
-
+                <Link href="/services" className="btnOutline">
+                  Dịch vụ
+                </Link>
               </div>
+            </div>
+
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  )}
+</section>
             </SwiperSlide>
           ))}
 

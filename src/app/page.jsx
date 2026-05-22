@@ -59,71 +59,59 @@ export default function HomePage() {
     <main className="homePage">
 
       {/* HERO SLIDER */}
-      <section className="heroSlider">
-<Swiper
-  modules={[Autoplay, Pagination]}
-  slidesPerView={1}
-  loop={true}
-  speed={1000}
-  autoplay={{
-    delay: 5000,
-    disableOnInteraction: false,
-    pauseOnMouseEnter: true,
-  }}
-  pagination={{
-    clickable: true,
-  }}
-  className="heroSwiper"
->
+<section className="heroSlider">
+  {sliders.length > 0 && (
+    <Swiper
+      key={sliders.length}
+      modules={[Autoplay, Pagination]}
+      slidesPerView={1}
+      loop={sliders.length > 1}
+      speed={1000}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false,
+      }}
+      pagination={{ clickable: true }}
+      className="heroSwiper"
+    >
+      {sliders.map((item) => (
+        <SwiperSlide key={item.id}>
+          <div
+            className="heroSlide"
+            style={{ "--bg-image": `url(${item.image})` }}
+          >
+            <div className="heroOverlay" />
 
-          {sliders.map((item) => (
-            <SwiperSlide key={item.id}>
+            <div className="heroContent">
+              <span className="heroBadge">THẨM MỸ VIỆN HISU</span>
 
-        <div
-  className="heroSlide"
-  style={{
-    "--bg-image": `url(${item.image})`,
-  }}
->
-                <div className="heroOverlay" />
+              <h1>{item.title}</h1>
 
-                <div className="heroContent">
+              <p>
+                Hệ thống thẩm mỹ & chăm sóc sắc đẹp chuyên nghiệp.
+              </p>
 
-                  <span className="heroBadge">
-                    THẨM MỸ VIỆN HISU
-                  </span>
+              <div className="heroButtons">
+                <Link href="/booking" className="btnPrimary">
+                  Đặt lịch ngay
+                </Link>
 
-                  <h1>{item.title}</h1>
+                <Link href="/services" className="btnOutline">
+                  Xem dịch vụ
+                </Link>
 
-                  <p>
-                    Hệ thống thẩm mỹ & chăm sóc sắc đẹp chuyên nghiệp.
-                  </p>
-
-                  <div className="heroButtons">
-
-                    <Link href="/booking" className="btnPrimary">
-                      Đặt lịch ngay
-                    </Link>
-
-                    <Link href="/services" className="btnOutline">
-                      Xem dịch vụ
-                    </Link>
-     <Link href="/posts" className="btnOutline">
-                      Xem bài viết
-                    </Link>
-                  </div>
-
-                </div>
-
+                <Link href="/posts" className="btnOutline">
+                  Xem bài viết
+                </Link>
               </div>
-
-            </SwiperSlide>
-          ))}
-
-        </Swiper>
-
-      </section>
-
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  )}
+</section>
       {/* SERVICES */}
       <section className="section">
 
