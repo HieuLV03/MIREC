@@ -1,6 +1,6 @@
 import "./globals.css";
 import Header from "@/components/Layout/Header/Header";
-
+import Footer from "@/components/Layout/Footer/Footer";
 export const metadata = {
   title: "THẨM MỸ VIỆN HISU",
   description: "Thẩm mỹ công nghệ cao",
@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className="appBody">
         <Header />
         <main className="mainContent">{children}</main>
+        <Footer/>
       </body>
     </html>
   );

@@ -170,23 +170,6 @@ export default function HomePage() {
 
       </section>
 
-      {/* ABOUT */}
-      <section className="aboutSection">
-
-        <div>
-          <h2>Về HISU</h2>
-
-          <p>
-            Thẩm mỹ công nghệ cao, an toàn & hiệu quả.
-          </p>
-        </div>
-
-        <div>
-          <img src="/images/about.jpg" alt="about" />
-        </div>
-
-      </section>
-
       {/* BLOG */}
       <section className="section">
 
