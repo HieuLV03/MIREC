@@ -96,16 +96,11 @@ async function fetchHomeData() {
                   <div className="heroOverlay" />
 
                   <div className="heroContent">
-                    <span className="heroBadge">
-                      THẨM MỸ VIỆN HISU
-                    </span>
+                 
 
                     <h1>{item.title}</h1>
 
-                    <p>
-                      Hệ thống thẩm mỹ & chăm sóc sắc đẹp chuyên nghiệp.
-                    </p>
-
+                 
                     <div className="heroButtons">
                       <Link href="/booking" className="btnPrimary">
                         Đặt lịch ngay
