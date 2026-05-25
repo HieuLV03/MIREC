@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   }));
 }
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
+  const { slug } = params;
 
   const { data } = await supabase
     .from("services")
@@ -74,7 +74,7 @@ export async function generateMetadata({ params }) {
 export default async function Page({
   params,
 }) {
-  const { slug } =await params;
+  const { slug } = params;
 
   const { data, error } =
     await supabase

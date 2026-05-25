@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }) {
-  const { slug } =await params;
+  const { slug } = params;
 
   const { data } = await supabase
     .from("posts")
@@ -80,7 +80,7 @@ export async function generateMetadata({
 export default async function PostPage({
   params,
 }) {
-  const { slug } =await params;
+  const { slug } = params;
 
   const { data, error } =
     await supabase
