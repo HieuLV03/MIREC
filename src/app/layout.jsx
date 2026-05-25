@@ -6,9 +6,7 @@ import ZaloButton from "@/components/ZaloButton/ZaloButton";
 import BookingButton from "@/components/BookingButton/BookingButton";
 
 export const metadata = {
-  metadataBase: new URL(
-    "https://thammyvienhisu.online"
-  ),
+  metadataBase: new URL("https://thammyvienhisu.online"),
 
   title: {
     default: "THẨM MỸ VIỆN HISU",
@@ -16,29 +14,31 @@ export const metadata = {
   },
 
   description: "Thẩm mỹ công nghệ cao",
+
+  // ✔ GOOGLE VERIFICATION
   verification: {
-    google:
-      "4mLd0Os-KkaDCT-MWvcardRaqRs4ARy18-EvKlD6fdU",
+    google: "4mLd0Os-KkaDCT-MWvcardRaqRs4ARy18-EvKlD6fdU",
+  },
+
+  // ✔ FAVICON + ICON (QUAN TRỌNG)
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+
+  // ✔ HIỂN THỊ KHI SHARE FACEBOOK / GOOGLE
+  openGraph: {
+    title: "THẨM MỸ VIỆN HISU",
+    description: "Thẩm mỹ công nghệ cao",
+    url: "https://thammyvienhisu.online",
+    siteName: "HISU",
+    images: [
+      {
+        url: "/icon.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
   },
 };
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-};
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="vi">
-      <body className="appBody">
-        <Header />
-        <main className="mainContent">{children}</main>
-        <ZaloButton />
-        <BookingButton />
-        <BookingPopup />
-        <Footer />
-      </body>
-    </html>
-  );
-}
