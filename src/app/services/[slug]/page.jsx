@@ -39,7 +39,7 @@ export async function generateMetadata({ params }) {
       data.short_description,
 
     alternates: {
-      canonical: `https://testhisu.vercel.app/services/${data.slug}`,
+      canonical: `https://thammyvienhisu.online/services/${data.slug}`,
     },
 
     openGraph: {

@@ -7,7 +7,7 @@ import BookingButton from "@/components/BookingButton/BookingButton";
 
 export const metadata = {
   metadataBase: new URL(
-    "https://testhisu.vercel.app"
+    "https://thammyvienhisu.online"
   ),
 
   title: {
@@ -19,7 +19,7 @@ export const metadata = {
 
   verification: {
     google:
-      "iMhkqfnYHYPZ2e7ZhvNa8URs0nteVRjtS03F9CKa0sU",
+      "4mLd0Os-KkaDCT-MWvcardRaqRs4ARy18-EvKlD6fdU",
   },
 };
 
