@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { supabase } from "@/lib/supabase";
 
-import Slider from "@/components/Slider/Slider";
 
 import "./page.css";
 
@@ -10,16 +9,8 @@ export const revalidate = 3600;
 
 export default async function HomePage() {
 
-  const [sliderRes, serviceRes, postRes] =
+  const [ serviceRes, postRes] =
     await Promise.all([
-
-      supabase
-        .from("sliders")
-        .select("*")
-        .eq("status", "published")
-        .order("created_at", {
-          ascending: false,
-        }),
 
       supabase
         .from("services")
@@ -39,7 +30,6 @@ export default async function HomePage() {
         .limit(3),
     ]);
 
-  const sliders = sliderRes.data || [];
   const services = serviceRes.data || [];
   const posts = postRes.data || [];
 
@@ -47,13 +37,12 @@ export default async function HomePage() {
     <main className="home">
 
       {/* HERO */}
-      <Slider sliders={sliders} />
 
       {/* SERVICES */}
       <section className="section">
 
         <div className="sectionHeader">
-          <h2>Dịch vụ nổi bật</h2>
+          <h2>Dịch vụ</h2>
         </div>
 
         <div className="serviceGrid">

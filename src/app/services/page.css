@@ -339,7 +339,8 @@ img {
 @media (max-width: 768px) {
 
   .section {
-    padding: 28px 16px;
+    margin-top: 33px;
+    padding: 27px 15px;
   }
 
   .sectionHeader h2 {

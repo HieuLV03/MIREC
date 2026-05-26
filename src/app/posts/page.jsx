@@ -2,8 +2,6 @@ import Link from "next/link";
 
 import { supabase } from "@/lib/supabase";
 
-import Slider from "@/components/Slider/Slider";
-
 import "./page.css";
 
 export const revalidate = 3600;
@@ -11,19 +9,9 @@ export const revalidate = 3600;
 export default async function HomePage() {
 
   const [
-    sliderRes,
     serviceRes,
     postRes,
   ] = await Promise.all([
-
-    supabase
-      .from("sliders")
-      .select("*")
-      .eq("status", "published")
-      .order("created_at", {
-        ascending: false,
-      }),
-
     supabase
       .from("services")
       .select("*")
@@ -42,10 +30,6 @@ export default async function HomePage() {
       .limit(3),
 
   ]);
-
-  const sliders =
-    sliderRes.data || [];
-
   const services =
     serviceRes.data || [];
 
@@ -56,8 +40,6 @@ export default async function HomePage() {
     <main className="home">
 
       {/* HERO */}
-      <Slider sliders={sliders} />
-
       {/* POSTS */}
       <section className="section">
 
