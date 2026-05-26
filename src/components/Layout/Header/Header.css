@@ -5,9 +5,12 @@
 }
 
 /* ================= ADMIN BAR ================= */
-
 .adminBar {
-  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
   height: 24px;
 
   display: flex;
@@ -16,13 +19,9 @@
 
   padding: 0 14px;
 
-  position: sticky;
-  top: 0;
-  z-index: 10000;
-
   background: var(--gradient);
+  z-index: 10001;
 }
-
 .adminBar a {
   color: white;
   text-decoration: none;
@@ -31,30 +30,37 @@
 }
 
 /* ================= HEADER ================= */
-
+.header.hasAdminBar {
+  top: 24px; /* đúng bằng height adminBar */
+}
 .header {
-  width: 100%;
+  position: sticky;
+
+  top: 0; /* mặc định user */
+
+  left: 0;
+  right: 0;
+
   height: 51px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  position: sticky;
-  top: 21px;
-  left: 0;
-  right: 0;
-
-  z-index: 9999;
+  z-index: 10000;
 
   padding: 0 16px;
   box-sizing: border-box;
 
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(16px);
+
   border-bottom: 1px solid rgba(58, 160, 255, 0.12);
 
   transition: transform 0.3s ease;
+}
+.header.hasAdminBar {
+  top: 24px;
 }
 
 .header.show {
@@ -179,7 +185,10 @@
   .menuToggle {
     display: block;
   }
+.header{
+    top: 0; /* mặc định user */
 
+}
  .nav {
     position: absolute;
     top: 100%;

@@ -34,7 +34,9 @@ useEffect(() => {
   window.addEventListener("scroll", handleScroll);
   return () => window.removeEventListener("scroll", handleScroll);
 }, []);
-
+useEffect(() => {
+  document.body.classList.toggle("admin", role === "admin");
+}, [role]);
   useEffect(() => {
     const getUser = async () => {
       const {
@@ -94,7 +96,7 @@ useEffect(() => {
       )}
 
       {/* HEADER */}
-<header className={`header ${showHeader ? "show" : "hide"}`}>
+<header className={`header ${showHeader ? "show" : "hide"} ${role === "admin" ? "hasAdminBar" : ""}`}>
           <div className="headerLeft">
         <Link href="/" className="logo">
   <Image
