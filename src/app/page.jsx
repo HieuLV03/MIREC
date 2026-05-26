@@ -101,14 +101,12 @@ export default async function HomePage() {
 
                 <div className="serviceFooter">
 
-                  <span className="servicePrice">
-
-                    {Number(
-                      item.price || 0
-                    ).toLocaleString("vi-VN")}₫
-
-                  </span>
-
+        <span className="servicePrice">
+  <span className="priceLabel">Giá Ưu đãi</span>
+  <span className="priceValue">
+    {Number(item.price || 0).toLocaleString("vi-VN")}₫
+  </span>
+</span>
                 </div>
 
               </div>

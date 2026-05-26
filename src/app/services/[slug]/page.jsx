@@ -169,7 +169,7 @@ export default async function Page({
 {data.price && (
   <div className="priceBox">
     <span className="priceLabel">
-      Giá dịch vụ
+      Giá chỉ
     </span>
 
     <div className="priceValue">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
 import "./page.css";
+import BackButton from "@/components/BackButton/BackButton";
 
 export const revalidate = 3600;
 
@@ -96,6 +97,8 @@ export default async function HomePage() {
       <section className="section">
 
         <div className="sectionHeader">
+              <BackButton />
+          
           <h2>Dịch vụ nổi bật</h2>
         </div>
 

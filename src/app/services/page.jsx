@@ -4,6 +4,7 @@ import { supabase } from "@/lib/supabase";
 
 
 import "./page.css";
+import BackButton from "@/components/BackButton/BackButton";
 
 export const revalidate = 3600;
 
@@ -42,6 +43,8 @@ export default async function HomePage() {
       <section className="section">
 
         <div className="sectionHeader">
+              <BackButton />
+          
           <h2>Dịch vụ</h2>
         </div>
 
@@ -81,7 +84,7 @@ export default async function HomePage() {
                 <div className="priceBox">
 
                   <span className="priceLabel">
-                    Giá từ
+                    Giá chỉ
                   </span>
 
                   <div className="priceValue">

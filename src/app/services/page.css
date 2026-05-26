@@ -33,8 +33,7 @@ img {
 
 .section {
   max-width: 1200px;
-  margin: auto;
-  padding: 36px 20px;
+  padding: 27px 15px;
 }
 
 .sectionHeader {
@@ -339,7 +338,7 @@ img {
 @media (max-width: 768px) {
 
   .section {
-    margin-top: 33px;
+    margin-top: 9px;
     padding: 27px 15px;
   }
 

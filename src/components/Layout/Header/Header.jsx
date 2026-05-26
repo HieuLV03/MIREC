@@ -1,9 +1,10 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+
 import "./Header.css";
 
 export default function Header() {
@@ -13,6 +14,26 @@ export default function Header() {
   const [profile, setProfile] = useState(null);
   const [role, setRole] = useState("guest");
   const [loading, setLoading] = useState(true);
+  const [showHeader, setShowHeader] = useState(true);
+const [lastScrollY, setLastScrollY] = useState(0);
+useEffect(() => {
+  let lastScrollY = window.scrollY;
+
+  const handleScroll = () => {
+    const currentY = window.scrollY;
+
+    if (currentY > lastScrollY && currentY > 80) {
+      setShowHeader(false); // kéo xuống → ẩn
+    } else {
+      setShowHeader(true); // kéo lên → hiện ngay
+    }
+
+    lastScrollY = currentY;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   useEffect(() => {
     const getUser = async () => {
@@ -73,11 +94,17 @@ export default function Header() {
       )}
 
       {/* HEADER */}
-      <header className="header">
-        <div className="headerLeft">
-          <Link href="/" className="logo">
-            HISU
-          </Link>
+<header className={`header ${showHeader ? "show" : "hide"}`}>
+          <div className="headerLeft">
+        <Link href="/" className="logo">
+  <Image
+    src="/logokhongnen.png"
+    alt="HISU"
+    width={79}
+    height={79}
+    priority
+  />
+</Link>
         </div>
 
         <button

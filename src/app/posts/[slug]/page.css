@@ -1,7 +1,7 @@
 .postPage {
   min-height: 100vh;
   background: #f6f7fb;
-  padding: 90px 20px 60px;
+  padding: 30px 20px 60px;
   display: flex;
   justify-content: center;
 }
@@ -12,7 +12,7 @@
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-  padding: 30px;
+  padding: 9px;
 }
 
 .postContainer h1 {
@@ -53,9 +53,11 @@
 /* MOBILE */
 @media (max-width: 768px) {
   .postContainer {
-    padding: 14px;
+    padding-top: 14px;
   }
-
+.postPage{
+  margin-top: 15px;
+}
   .postContainer h1 {
     font-size: 24px;
   }

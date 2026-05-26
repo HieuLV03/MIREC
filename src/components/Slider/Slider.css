@@ -131,9 +131,6 @@ margin: 10px;
 /* MOBILE */
 /* MOBILE */
 @media (max-width: 768px) {
-  .heroSlider {
-    margin-top: 36px;
-  }
   .heroSlider,
   .heroSwiper,
   .heroSlide {
