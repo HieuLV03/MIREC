@@ -16,7 +16,11 @@ export const metadata = {
   },
 
   description: "Thẩm mỹ công nghệ cao",
-
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   verification: {
     google:
       "4mLd0Os-KkaDCT-MWvcardRaqRs4ARy18-EvKlD6fdU",
