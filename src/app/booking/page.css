@@ -10,9 +10,9 @@
 .booking-box {
   margin-top: 18px;
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
   background: #fff;
-  padding:10px 30px;
+  padding:10px 21px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
@@ -223,7 +223,6 @@ display: flex;
 @media (max-width: 768px) {
   .booking-container {
     align-items: flex-start;
-    padding: 10px;
   }
 
   .booking-box {
@@ -267,17 +266,61 @@ display: flex;
 
 /* Small mobile */
 @media (max-width: 480px) {
-  .booking-box {
-    margin-top: 33px;
-    padding:0px 15px;
+  .booking-container {
+    padding: 12px;
   }
 
-  .booking-form button {
-    padding: 11px;
+  .booking-box {
+    margin-top: 24px;
+    padding: 16px 14px; /* 👈 FIX: bỏ 75px */
+    border-radius: 10px;
+  }
+
+  .booking-box h1 {
+    font-size: 18px;
+  }
+
+  .booking-form {
+    gap: 12px;
+  }
+
+  .booking-form input,
+  .booking-form select {
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .checkboxGroup label {
     font-size: 14px;
   }
 
-  .checkboxGroup {
-    gap: 10px;
+  .checkboxGroup input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+
+  .booking-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  .successPopup {
+    width: 92%;
+    padding: 16px;
+  }
+
+  .successIcon {
+    font-size: 38px;
+  }
+
+  .successPopup h2 {
+    font-size: 17px;
+  }
+
+  .successPopup p {
+    font-size: 13px;
   }
 }
