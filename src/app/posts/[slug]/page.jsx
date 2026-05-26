@@ -33,7 +33,29 @@ export async function generateMetadata({
     };
   }
 
-  return {
+return {
+  metadataBase: new URL(
+    "https://thammyvienhisu.online"
+  ),
+
+  title:
+    data.meta_title ||
+    data.title,
+
+  description:
+    data.meta_description ||
+    data.description,
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical: `/posts/${data.slug}`,
+  },
+
+  openGraph: {
     title:
       data.meta_title ||
       data.title,
@@ -42,41 +64,43 @@ export async function generateMetadata({
       data.meta_description ||
       data.description,
 
-    alternates: {
-      canonical: `https://thammyvienhisu.online/posts/${data.slug}`,
-    },
+    url: `/posts/${data.slug}`,
 
-    openGraph: {
-      title:
-        data.meta_title ||
-        data.title,
+    siteName:
+      "Thẩm mỹ viện HiSu",
 
-      description:
-        data.meta_description ||
-        data.description,
+    locale: "vi_VN",
 
-      images: data.image
-        ? [data.image]
-        : [],
-    },
+    type: "article",
 
-    twitter: {
-      card:
-        "summary_large_image",
+    images: data.image
+      ? [
+          {
+            url: data.image,
+            width: 1200,
+            height: 630,
+          },
+        ]
+      : [],
+  },
 
-      title:
-        data.meta_title ||
-        data.title,
+  twitter: {
+    card:
+      "summary_large_image",
 
-      description:
-        data.meta_description ||
-        data.description,
+    title:
+      data.meta_title ||
+      data.title,
 
-      images: data.image
-        ? [data.image]
-        : [],
-    },
-  };
+    description:
+      data.meta_description ||
+      data.description,
+
+    images: data.image
+      ? [data.image]
+      : [],
+  },
+};
 }
 
 export default async function PostPage({
@@ -105,7 +129,30 @@ export default async function PostPage({
 
 return (
   <div className="postPage">
-    
+    <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: data.title,
+      description: data.description,
+      image: data.image,
+      author: {
+        "@type": "Organization",
+        name: "Thẩm mỹ viện HiSu",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Thẩm mỹ viện HiSu",
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `https://thammyvienhisu.online/posts/${data.slug}`,
+      },
+    }),
+  }}
+/>
     <BackButton />
 
     <div className="postContainer">

@@ -24,6 +24,7 @@ export async function generateMetadata({ params }) {
     .from("services")
     .select("*")
     .eq("slug", slug)
+      .eq("status", "published")
     .maybeSingle();
 
   if (!data) {
@@ -31,46 +32,74 @@ export async function generateMetadata({ params }) {
       title: "Không tìm thấy dịch vụ",
     };
   }
+return {
+  metadataBase: new URL(
+    "https://thammyvienhisu.online"
+  ),
 
-  return {
-    title: data.meta_title || data.title,
+  title:
+    data.meta_title ||
+    data.title,
+
+  description:
+    data.meta_description ||
+    data.short_description,
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical: `/services/${data.slug}`,
+  },
+
+  openGraph: {
+    title:
+      data.meta_title ||
+      data.title,
 
     description:
       data.meta_description ||
       data.short_description,
 
-    alternates: {
-      canonical: `https://thammyvienhisu.online/services/${data.slug}`,
-    },
+    url: `/services/${data.slug}`,
 
-    openGraph: {
-      title: data.meta_title || data.title,
+    siteName:
+      "Thẩm mỹ viện HiSu",
 
-      description:
-        data.meta_description ||
-        data.short_description,
+    locale: "vi_VN",
 
-      images: data.image
-        ? [data.image]
-        : [],
-    },
+    type: "article",
 
-    twitter: {
-      card: "summary_large_image",
+    images: data.image
+      ? [
+          {
+            url: data.image,
+            width: 1200,
+            height: 630,
+          },
+        ]
+      : [],
+  },
 
-      title:
-        data.meta_title ||
-        data.title,
+  twitter: {
+    card:
+      "summary_large_image",
 
-      description:
-        data.meta_description ||
-        data.short_description,
+    title:
+      data.meta_title ||
+      data.title,
 
-      images: data.image
-        ? [data.image]
-        : [],
-    },
-  };
+    description:
+      data.meta_description ||
+      data.short_description,
+
+    images: data.image
+      ? [data.image]
+      : [],
+  },
+};
 }
 
 export default async function Page({
@@ -92,6 +121,40 @@ export default async function Page({
 
   return (
     <div className="page">
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+
+      name: data.title,
+
+      description:
+        data.short_description,
+
+      image: data.image,
+
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `https://thammyvienhisu.online/services/${data.slug}`,
+      },
+
+      provider: {
+        "@type": "BeautySalon",
+
+        name: "Thẩm mỹ viện HiSu",
+
+        url: "https://thammyvienhisu.online",
+      },
+
+      areaServed: {
+        "@type": "Country",
+        name: "Việt Nam",
+      },
+    }),
+  }}
+/>
       <BackButton />
 
       <h1 className="title">
