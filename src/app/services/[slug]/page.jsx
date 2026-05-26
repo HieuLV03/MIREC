@@ -6,6 +6,7 @@ import BackButton from "@/components/BackButton/BackButton";
 
 // FIX CACHE
 export const revalidate = 3600;
+export const dynamicParams = true;
 export async function generateStaticParams() {
   const { data } = await supabase
     .from("services")
