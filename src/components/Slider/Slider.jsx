@@ -9,6 +9,7 @@ import {
 } from "swiper/modules";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -37,29 +38,37 @@ export default function Slider({
           }}
           className="heroSwiper"
         >
-
-          {sliders.map((item) => (
+          {sliders.map((item, index) => (
             <SwiperSlide key={item.id}>
 
               <div className="heroSlide">
 
-                <picture>
+                {/* Mobile */}
+                <Image
+                  src={
+                    item.image_mobile ||
+                    item.image_desktop ||
+                    item.image
+                  }
+                  alt={item.title}
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="heroImg mobileOnly"
+                />
 
-                  <source
-                    media="(max-width: 768px)"
-                    srcSet={item.image_mobile}
-                  />
-
-                  <img
-                    src={
-                      item.image_desktop ||
-                      item.image
-                    }
-                    alt={item.title}
-                    className="heroImg"
-                  />
-
-                </picture>
+                {/* Desktop */}
+                <Image
+                  src={
+                    item.image_desktop ||
+                    item.image
+                  }
+                  alt={item.title}
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="heroImg desktopOnly"
+                />
 
                 <div className="heroOverlay" />
 
@@ -98,7 +107,6 @@ export default function Slider({
 
             </SwiperSlide>
           ))}
-
         </Swiper>
       )}
 

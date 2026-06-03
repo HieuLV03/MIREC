@@ -127,7 +127,36 @@ margin: 10px;
   background: #ff4d8d;
   opacity: 1;
 }
+.heroSlide {
+  position: relative;
+  overflow: hidden;
+}
 
+.heroImg {
+  object-fit: cover;
+}
+
+/* Desktop mặc định */
+.mobileOnly {
+  display: none;
+}
+
+.desktopOnly {
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .mobileOnly {
+    display: block;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+}
 /* MOBILE */
 /* MOBILE */
 @media (max-width: 768px) {
