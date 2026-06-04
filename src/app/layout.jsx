@@ -1,8 +1,6 @@
 import "./globals.css";
 import ClientLayout from "@/components/Layout/ClientLayout";
 
-import Script from "next/script";
-
 import { Inter, Playfair_Display, Poppins } from "next/font/google";
 
 const inter = Inter({
@@ -41,68 +39,51 @@ export default function RootLayout({ children }) {
       lang="vi"
       className={`${inter.variable} ${playfair.variable} ${poppins.variable}`}
     >
-   <head><script
-  dangerouslySetInnerHTML={{
-    __html: `
-      setTimeout(() => {
-        window.ttq && window.ttq.track && window.ttq.track('PageView');
-      }, 1000);
-    `,
-  }}
-/>
-  <script
-    dangerouslySetInnerHTML={{
-      __html: `
-      !function (w, d, t) {
-        w.TiktokAnalyticsObject=t;
-        var ttq=w[t]=w[t]||[];
+      <head>
+        {/* TikTok Pixel */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function (w, d, t) {
+                w.TiktokAnalyticsObject=t;
+                var ttq=w[t]=w[t]||[];
 
-        ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+                ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias"];
 
-        ttq.setAndDefer=function(t,e){
-          t[e]=function(){
-            t.push([e].concat(Array.prototype.slice.call(arguments,0)))
-          }
-        };
+                ttq.setAndDefer=function(t,e){
+                  t[e]=function(){
+                    t.push([e].concat(Array.prototype.slice.call(arguments,0)))
+                  }
+                };
 
-        for(var i=0;i<ttq.methods.length;i++){
-          ttq.setAndDefer(ttq,ttq.methods[i]);
-        }
+                for(var i=0;i<ttq.methods.length;i++){
+                  ttq.setAndDefer(ttq,ttq.methods[i]);
+                }
 
-        ttq.instance=function(t){
-          for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++){
-            ttq.setAndDefer(e,ttq.methods[n]);
-          }
-          return e;
-        };
+                ttq.load=function(e){
+                  var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+                  var s=document.createElement("script");
+                  s.async=true;
+                  s.src=r+"?sdkid="+e;
+                  document.head.appendChild(s);
+                };
 
-        ttq.load=function(e,n){
-          var r="https://analytics.tiktok.com/i18n/pixel/events.js";
-          ttq._i=ttq._i||{};
-          ttq._i[e]=[];
-          ttq._i[e]._u=r;
-          ttq._t=ttq._t||{};
-          ttq._t[e]=+new Date;
-          ttq._o=ttq._o||{};
-          ttq._o[e]=n||{};
+                ttq.load('D8GE2OJC77U3N4JA967G');
 
-          var s=document.createElement("script");
-          s.type="text/javascript";
-          s.async=true;
-          s.src=r+"?sdkid="+e+"&lib="+t;
+                window.addEventListener('load', function () {
+                  setTimeout(function () {
+                    if (window.ttq && window.ttq.track) {
+                      window.ttq.track('PageView');
+                    }
+                  }, 1200);
+                });
 
-          var x=document.getElementsByTagName("script")[0];
-          x.parentNode.insertBefore(s,x);
-        };
+              }(window, document, 'ttq');
+            `,
+          }}
+        />
+      </head>
 
-    ttq.load('D8GE2OJC77U3N4JA967G');
-setTimeout(() => {
-  ttq.track('PageView');
-}, 800);
-      `,
-    }}
-  />
-</head>
       <body className="appBody">
         <ClientLayout>{children}</ClientLayout>
       </body>
