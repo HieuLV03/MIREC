@@ -26,7 +26,7 @@ export const initTikTokPixel = () => {
       document.head.appendChild(s);
     };
 
-    ttq.load("D8GINV3C77UEC9ORUCU0");
+    ttq.load("D8GPA0BC77U6KT5C0350");
     ttq.page();
   }(window, document, 'ttq');
 };
