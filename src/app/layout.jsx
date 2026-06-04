@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
                 document.head.appendChild(s);
               };
 
-              ttq.load("D8GI7M3C77UDLID672C0");
+              ttq.load("D8GH643C77UDLID670L0");
               ttq.page();
             }(window, document, 'ttq');
           `}
