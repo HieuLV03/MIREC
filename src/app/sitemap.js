@@ -33,7 +33,7 @@ export default async function sitemap() {
   if (postError || serviceError) {
     return [
       {
-        url: "https://thammyvienhisu.online",
+      url: "https://mirec.vercel.app",
         lastModified: new Date().toISOString(),
       },
     ];
