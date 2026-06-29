@@ -87,7 +87,7 @@ if (form.services.length === 0) {
     <div className="successPopup errorPopup">
       <div className="successIcon">⚠️</div>
 
-      <h2>HISU thông báo</h2>
+      <h2>MIREC thông báo</h2>
 
       <p>{errorPopup}</p>
 

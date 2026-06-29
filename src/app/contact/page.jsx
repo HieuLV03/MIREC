@@ -103,7 +103,7 @@ const handleSubmit = async (e) => {
         <div className="successOverlay">
           <div className="successPopup errorPopup">
             <div className="successIcon">⚠️</div>
-            <h2>HISU thông báo</h2>
+            <h2>MIREC thông báo</h2>
             <p>{errorPopup}</p>
             <button onClick={() => setErrorPopup("")}>Đóng</button>
           </div>
@@ -237,7 +237,7 @@ const handleSubmit = async (e) => {
           <p>📧 thammyvienhisu@gmail.com</p>
 
           <div className="contact-note">
-            Cảm ơn bạn đã tin tưởng HISU
+            Cảm ơn bạn đã tin tưởng MIREC
           </div>
         </div>
       </div>

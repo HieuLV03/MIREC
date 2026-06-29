@@ -107,9 +107,9 @@ useEffect(() => {
         <Link href="/" className="logo">
   <Image
     src="/logokhongnen.png"
-    alt="HISU"
+    alt="MIREC"
     width={79}
-    height={79}
+    height={69}
     priority
   />
 </Link>

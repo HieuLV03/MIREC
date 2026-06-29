@@ -67,7 +67,7 @@ openGraph: {
   url: `/posts/${data.slug}`,
 
   siteName:
-    "Thẩm mỹ viện HiSu",
+    "MIREC",
 
   locale: "vi_VN",
 
