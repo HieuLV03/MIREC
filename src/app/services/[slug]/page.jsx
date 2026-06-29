@@ -9,16 +9,19 @@ import Link from "next/link";
 export const revalidate = 3600;
 export const dynamicParams = true;
 export async function generateStaticParams() {
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("services")
     .select("slug")
     .eq("status", "published");
+
+  if (error || !Array.isArray(data)) {
+    return [];
+  }
 
   return data.map((item) => ({
     slug: item.slug,
   }));
 }
-
 export async function generateMetadata({
   params,
 }) {
