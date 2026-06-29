@@ -41,7 +41,7 @@ export default async function sitemap() {
 
   // POSTS URLS
   const postUrls = (posts || []).map((post) => ({
-    url: `https://thammyvienhisu.online/posts/${post.slug}`,
+    url: `https://mirec.vercel.app/posts/${post.slug}`,
     lastModified: safeDate(post.updated_at),
     changeFrequency: "weekly",
     priority: 0.8,
@@ -49,7 +49,7 @@ export default async function sitemap() {
 
   // SERVICES URLS
   const serviceUrls = (services || []).map((service) => ({
-    url: `https://thammyvienhisu.online/services/${service.slug}`,
+    url: `https://mirec.vercel.app/services/${service.slug}`,
     lastModified: safeDate(service.updated_at),
     changeFrequency: "weekly",
     priority: 0.9,
@@ -57,42 +57,42 @@ export default async function sitemap() {
 
 return [
   {
-    url: "https://thammyvienhisu.online",
+    url: "https://mirec.vercel.app",
     lastModified: new Date().toISOString(),
     changeFrequency: "daily",
     priority: 1,
   },
 
   {
-    url: "https://thammyvienhisu.online/about",
+    url: "https://mirec.vercel.app/about",
     lastModified: new Date().toISOString(),
     changeFrequency: "monthly",
     priority: 0.8,
   },
 
   {
-    url: "https://thammyvienhisu.online/contact",
+    url: "https://mirec.vercel.app/contact",
     lastModified: new Date().toISOString(),
     changeFrequency: "monthly",
     priority: 0.8,
   },
 
   {
-    url: "https://thammyvienhisu.online/booking",
+    url: "https://mirec.vercel.app/booking",
     lastModified: new Date().toISOString(),
     changeFrequency: "weekly",
     priority: 0.9,
   },
 
   {
-    url: "https://thammyvienhisu.online/posts",
+    url: "https://mirec.vercel.app/posts",
     lastModified: new Date().toISOString(),
     changeFrequency: "daily",
     priority: 0.9,
   },
 
   {
-    url: "https://thammyvienhisu.online/services",
+    url: "https://mirec.vercel.app/services",
     lastModified: new Date().toISOString(),
     changeFrequency: "daily",
     priority: 0.9,
