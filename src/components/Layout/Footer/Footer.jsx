@@ -45,9 +45,6 @@ export default function Footer() {
     {/* SOCIAL */}
     <div className="footerBox">
       <h3>Kết nối</h3>
-
-      <p>💬 Hỗ trợ 24/7</p>
-
       <div className="social">
         <a href="#">Facebook</a>
         <a href="#">Zalo</a>

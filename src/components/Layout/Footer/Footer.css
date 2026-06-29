@@ -115,7 +115,11 @@
   color: white;
   transform: translateY(-2px);
 }
-
+.footerBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 /* BOTTOM */
 .footerBottom {
   text-align: center;
